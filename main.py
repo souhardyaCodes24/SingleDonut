@@ -42,10 +42,6 @@ def instructions(screen):
     screen.blit(instruction_text, instruction_textRect)
 
 
-
-
-    pass
-
 # MAKIGN DONUTS
 
 # importing donut pics
@@ -53,7 +49,6 @@ donut_pics=[]
 for i in range(1,7):
     p=pygame.transform.scale(pygame.image.load(f"d{i}.png"),(45,45))
     donut_pics.append(p)
-print(len(donut_pics))
 
 donuts=[]
 def make_donuts_location():
@@ -71,8 +66,7 @@ def make_donuts_location():
 
         donuts.append((pygame.Rect(x,y,40,40),colour_num))
 make_donuts_location()
-print(donuts)
-print(donut_pics)
+
 
 
 # MAIN GAME LOOP
@@ -118,7 +112,7 @@ while(run):
         for i in donuts:
             donut=i[0]
             if donut.left<pygame.mouse.get_pos()[0]<donut.right and donut.top<pygame.mouse.get_pos()[1]<donut.bottom and i[1]==5:# last condition is to check pink colour
-                print("CAUGHT")
+             
                 score+=0.03
                 
             # game ending condition
@@ -130,7 +124,7 @@ while(run):
         donuts.clear()
         
         make_donuts_location()
-    print(int(score))
+   
     for i in donuts:
         s.blit(donut_pics[i[1]],i[0])
   
@@ -143,5 +137,5 @@ textRect1.center = (WIDTH // 2, HEIGHT // 2)
 s.blit(text1,textRect1)
 
 pygame.display.flip()
-pygame.time.delay(2500)
+pygame.time.delay(2000)
 sys.exit()
